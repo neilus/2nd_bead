@@ -8,11 +8,13 @@ public class RubikMatrix {
      * @param n  0 <= n <= 127
      */
     public RubikMatrix(int n){
-        rubik = new byte[n][n];
-        //ToDo: fill up with random "colors"
-        for(int i = 0; i < n; i++){
-            for(int j = 0; j < n; j++){
-                rubik[i][j] = 0;
+        if(n > 0) {
+            rubik = new byte[n][n];
+            //ToDo: fill up with random "colors"
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    rubik[i][j] = 0;
+                }
             }
         }
     }

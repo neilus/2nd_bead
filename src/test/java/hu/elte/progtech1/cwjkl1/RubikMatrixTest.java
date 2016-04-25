@@ -3,7 +3,6 @@ package hu.elte.progtech1.cwjkl1;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Test.*;
 import static org.junit.Assert.*;
 
 /**
@@ -14,6 +13,8 @@ public class RubikMatrixTest {
 
     @Test
     public void shiftUp() throws Exception {
+
+
 
     }
 
@@ -34,11 +35,32 @@ public class RubikMatrixTest {
 
     @Before
     public void setUp() throws Exception {
+
+    }
+
+    @Test
+    public void dimensionBorderValues() {
+
+        try {
+            tester = new RubikMatrix(-1);
+            tester.getSize();
+        } catch (NullPointerException nullex) {
+            System.err.println("With negative dimension the exception message is: " + nullex.getMessage());
+        }
+
+        try {
+            tester = new RubikMatrix(0);
+            tester.getSize();
+            assertNotNull("Zero (null) dimension", tester.getSize());
+        } catch(NullPointerException nullex) {
+            System.err.println("With zero dimension the exception message is: " +nullex.getMessage());
+        }
+
         tester = new RubikMatrix(1);
         assertEquals("this is just a single color", 1, tester.getSize());
         assertEquals("nulla", 0, tester.rubik[0][0]);
-    }
 
+    }
     @Test
     public void helloMatrix(){
         RubikMatrix rubik = new RubikMatrix(2);
