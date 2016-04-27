@@ -19,6 +19,13 @@ public class RubikMatrix {
         }
     }
 
+    /**
+     * Generate a pseudo-random number in the interval [0; n[
+     * @param n
+     * @param i
+     * @param j
+     * @return
+     */
     private int modColor(int n, int i, int j){
         return (i + j) % n;
     }
@@ -56,6 +63,11 @@ public class RubikMatrix {
         rubik[x][getSize() - 1] = shift;
     }
 
+    /**
+     *  Shift the yth column right, and cycle the
+     *  right element to the left
+     * @param y the row that should be cycled in [0, getSize)
+     */
     public void shiftRight(int y) {
         int shift = rubik[getSize() - 1][y];
         for(int j= (getSize() - 1); j > 0; j--) {
@@ -64,6 +76,11 @@ public class RubikMatrix {
         rubik[0][y] = shift;
     }
 
+    /**
+     *  Shift the yth column left, and cycle the
+     *  left element to the right
+     * @param y the row that should be cycled in [0, getSize)
+     */
     public void shiftLeft(int y){
         int shift = rubik[0][y];
         for(int j = 0; j < (getSize() - 1); j++){
