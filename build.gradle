@@ -12,7 +12,7 @@ apply plugin: 'java'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 apply plugin: 'application'
-mainClassName = 'Main'
+mainClassName = 'hu.elte.progtech1.cwjkl1.RubikTableSwing'
 // In this section you declare where to find the dependencies of your project
 repositories {
     // Use 'jcenter' for resolving your dependencies.
@@ -30,13 +30,14 @@ dependencies {
     compile 'org.slf4j:slf4j-api:1.7.18'
 
     testCompile 'junit:junit:4.12'
-//    testCompile 'org.python:jython-standalone:2.7.0'
     robot 'org.robotframework:robotframework:3.0'
+    robot 'org.robotframework:swinglibrary:1.9.5'
+    robot 'org.robotframework:javalib-core'
 }
 
 jar {
   manifest {
-    attributes 'Main-Class': 'Main2'
+    attributes 'Main-Class': 'hu.elte.progtech1.cwjkl1.Main'
   }
 }
 
@@ -53,33 +54,6 @@ task (robot, type: JavaExec) {
     ]
 }
 
-run.doFirst {
-    println ':no input'
-}
-
-task (input1, type: JavaExec) {
-    group   'Application'
-//    dependencies 'assemble'
-    description 'Run the assembled jar with input1.txt'
-    main = 'Main2'
-    classpath = sourceSets.main.runtimeClasspath + configurations.compile
-    args = ['./src/test/input/input1.txt']
-
-
-}
-
-task (input2, type: JavaExec) {
-    group   'Application'
-    description 'Run the assembled jar with input2.txt'
-    main = 'Main2'
-    classpath = sourceSets.main.runtimeClasspath
-    args = ['./src/test/input/input2.txt']
-
-}
-
-//test.setFinalizedBy(['robot'])
-run.setFinalizedBy(['input1', 'input2'])
-//build.setFinalizedBy(['run'])
 build.doLast {
     println '\n'
     println 'A Unit teszt eredmények: ./build/reports/tests/index.html'
@@ -87,10 +61,12 @@ build.doLast {
     println 'A futtatható bináris (JAR) csomag: ./build/libs/2nd_bead.jar'
 }
 
-//task buildNrun {
-//    group 'Application'
-//    description 'Build and run the Application with samples'
-//}
-//buildNrun.setFinalizedBy(['build', 'input1', 'input2'])
+task buildNrun {
+    group 'Application'
+    description 'Build and run the Application with samples'
+}
 
-defaultTasks 'buildNrun'
+test.setFinalizedBy(['robot'])
+buildNrun.setFinalizedBy(['build', 'run'])
+
+defaultTasks  'buildNrun'

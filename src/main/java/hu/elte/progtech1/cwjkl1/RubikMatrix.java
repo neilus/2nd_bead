@@ -19,6 +19,10 @@ public class RubikMatrix {
         }
     }
 
+    public RubikMatrix(){
+        this(4);
+    }
+
     /**
      * Generate a pseudo-random number in the interval [0; n[
      * @param n
