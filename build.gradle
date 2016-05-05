@@ -12,7 +12,7 @@ apply plugin: 'java'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 apply plugin: 'application'
-mainClassName = 'hu.elte.progtech1.cwjkl1.RubikTableSwing'
+mainClassName = 'hu.elte.progtech1.cwjkl1.Main'
 // In this section you declare where to find the dependencies of your project
 repositories {
     // Use 'jcenter' for resolving your dependencies.
@@ -28,7 +28,8 @@ configurations {
 dependencies {
     // The production code uses the SLF4J logging API at compile time
     compile 'org.slf4j:slf4j-api:1.7.18'
-
+//    compile 'com.github.adedayo.intellij.sdk:forms_rt:142.1'
+//    compile 'com.intellij:forms_rt:7.0.3'
     testCompile 'junit:junit:4.12'
     robot 'org.robotframework:robotframework:3.0'
     robot 'org.robotframework:swinglibrary:1.9.5'
@@ -69,4 +70,4 @@ task buildNrun {
 test.setFinalizedBy(['robot'])
 buildNrun.setFinalizedBy(['build', 'run'])
 
-defaultTasks  'buildNrun'
+defaultTasks  'build' //'buildNrun'
