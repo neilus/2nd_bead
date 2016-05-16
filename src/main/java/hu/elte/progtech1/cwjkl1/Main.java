@@ -54,17 +54,14 @@ public class Main extends JFrame {
                 dimSpinner.setValue(dim);
             }
         });
-//        newGameBtn.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                Dialog hi = new Dialog(frame);
-//                hi.setTitle("No new agme yet, sorry :(");
-//                hi.add(new Label("You wanted to start a Rubik Table game size of " + dim));
-//
-//                hi.setVisible(true);
-//
-//            }
-//        });
+        newGameBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                HelloDialog dialog = new HelloDialog(dim);
+                dialog.pack();
+                dialog.setVisible(true);
+            }
+        });
     }
 
     public static void main(String[] args) {

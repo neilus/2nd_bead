@@ -31,9 +31,16 @@ dependencies {
 //    compile 'com.github.adedayo.intellij.sdk:forms_rt:142.1'
 //    compile 'com.intellij:forms_rt:7.0.3'
     testCompile 'junit:junit:4.12'
+    testCompile 'info.cukes:cucumber-java:1.2.4'
+    testCompile 'info.cukes:cucumber-junit:1.2.4'
     robot 'org.robotframework:robotframework:3.0'
     robot 'org.robotframework:swinglibrary:1.9.5'
     robot 'org.robotframework:javalib-core'
+}
+
+test {
+    testLogging.showStandardStreams = true
+    systemProperties System.getProperties()
 }
 
 jar {
