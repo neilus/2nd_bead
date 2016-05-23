@@ -2,6 +2,7 @@
 *.jar
 .idea/*
 .vagrant/*
+*.box
 gradlew.log
 *~
 \#*\#
