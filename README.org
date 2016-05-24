@@ -4,7 +4,10 @@
 #+email: neilus@elte.hu
 
 * Feladatkiírás
+** A feladat szövege
+
 *7. Áttörés*
+
 Készítsünk  programot,  amellyel  a  következő  kétszemélyes  já
 tékot  lehet játszani.  Adott  egy /n × n/
   mezőből  álló  tábla,  ahol  a  két  játékos  bábúi  egymással  s
@@ -23,4 +26,116 @@ A  program  biztosítson  lehetőséget  új  játék  kezdésére  a  tá
 blaméret  megadásával  (6×6,  8×8, 
 10×10), és ismerje fel, ha vége a játéknak. Ekkor jelenítse me
 g, melyik játékos győzött, majd 
-automatikusan kezdjen új játékot. 
+automatikusan kezdjen új játékot.
+
+** Használati utasítás
+
+A prorgam fordításához és futtatásához Oracle Java 8 szükséges!
+
+A beadandó programot a /gradle build system/ segítségével fordítom, csomagolom és futtatom a teszteket. Ehhez a _repó rootjában_ mellékelve találhatóak a gradlew illetve a gradlew.bat scriptek, melyek az ún. /gradle wrapper/ scriptek. Ezek valamelyikét futtatva (=./gradlew= linuxon, macen vagy =gradlew.bat= windowson) a wrapper script automágikusan letölti a megfelelő gradle verziót, a fordításhoz és a teszteléshez szükséges librarykat a mavencentral repóikból, buildel majd pedig futtatja a teszteket is. A gradle build script úgy van konfigurálva, hogy ehhez nem szükséges paramétereket megadni, ez az ún. /default task/ amit a gradle végrehajt.
+
+*** TL;DR
+
+**** Linux vagy mac
+
+#+begin_src bash
+./gradlew
+#+end_src
+
+**** Windows
+
+#+begin_src bat
+gradlew.bat
+#+end_src
+
+* Megoldás
+
+A beadandó feladat (a követelményeknek megfelelően) egy SWING-ben implementált grafikus Java program.
+
+** Megoldás terve
+
+*** GUI funckcionális terve 
+
+Az alkalmazás két fajta ablakot jelenít meg: egyik a főprogram ablaka, a másik a játék ablaka.
+
+**** A főprogram 
+
+A főprogram ablakában van lehetőségünk beállítani a tábla méretét és új játékot kezdeni.
+
+#+begin_src plantuml :file img/gui_main.png :exports results
+@startsalt
+{+
+ { Tábla méret | ^6x6^ | [Új játék kezdése] }
+}
+@endsalt
+#+end_src
+
+#+RESULTS:
+[[file:gui_main.png]]
+
+**** A játék
+
+A játék ablakában a beállításunknak megfelelő négyzetrácson kétállású gombok (toggle button) segítségével van ábrázolva a táblajáték és a rajta elhelyezkedő bábuk.
+
+A játékosok úgy mozgathatják a bábjaikat, hogy először a mozgatni kívánt bábura kattintanak, majd pedig a célnak kijelölt mezőre.
+
+#+begin_src plantuml :file img/gui_game.png :exports results
+@startsalt
+{+
+{
+[<&person>] | [<&person>] | [<&person>] | [<&person>] | [<&person>] | [<&person>]
+[<&person>] | [<&person>] | [<&person>] | [<&person>] | [<&person>] | [<&person>]
+[  ] | [  ] | [  ] | [  ] | [  ] | [  ]
+[  ] | [  ] | [  ] | [  ] | [  ] | [  ]
+[<&star>] | [<&star>] | [<&star>] | [<&star>] | [<&star>] | [<&star>]
+[<&star>] | [<&star>] | [<&star>] | [<&star>] | [<&star>] | [<&star>]
+}}
+@endsalt
+#+end_src
+
+#+RESULTS:
+[[file:gui_game.png]]
+
+
+*** Osztálydiagramm
+
+#+begin_src plantuml :file img/class_diargamm.png :exports results
+@startuml
+
+class hu.elte.progtech.cwjkl1.Main {
+ - newGameBtn
+ - startNewGame():void
+}
+
+class GameConfigView
+class GameConfig {
+ + getTableSize(): Integer
+ - tableSize: Integer
+}
+class GameView {
+ - clickHandler(): void
+}
+class Game
+class FieldView
+class Field
+
+JToggleButton <|-- FieldView
+JPanel <|-- GameView
+JPanel <|-- GameConfigView
+JPanel <|-- hu.elte.progtech.cwjkl1.Main
+
+hu.elte.progtech.cwjkl1.Main o--  GameConfigView
+hu.elte.progtech.cwjkl1.Main o--  GameView
+Game o-- Field
+GameView o-- FieldView
+FieldView *-- Field
+GameConfigView *-- GameConfig
+GameView *-- Game
+
+@enduml
+#+end_src
+
+#+RESULTS:
+[[file:img/class_diargamm.png]]
+
+*** Osztályok absztrakt leírása

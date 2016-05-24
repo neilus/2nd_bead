@@ -1,7 +1,12 @@
 *.class
 *.jar
-.idea/*
-.vagrant/*
+*.aux
+*.log
+*.out
+*.toc
+*.tex
+.idea/
+.vagrant/
 *.box
 gradlew.log
 *~
@@ -36,4 +41,4 @@ local.properties
 
 
 #NDK
-obj/*
+obj/
