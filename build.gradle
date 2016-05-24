@@ -12,7 +12,7 @@ apply plugin: 'java'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 apply plugin: 'application'
-mainClassName = 'Main'
+mainClassName = 'hu.elte.progtech.cwjkl1.Main'
 // In this section you declare where to find the dependencies of your project
 repositories {
     // Use 'jcenter' for resolving your dependencies.
@@ -36,7 +36,7 @@ dependencies {
 
 jar {
   manifest {
-    attributes 'Main-Class': 'Main'
+    attributes 'Main-Class': 'hu.elte.progtech.cwjkl1.Main'
   }
 }
 
@@ -55,14 +55,14 @@ task (robot, type: JavaExec) {
 
 
 //test.setFinalizedBy(['robot'])
-run.setFinalizedBy(['input1', 'input2'])
+
 //build.setFinalizedBy(['run'])
-build.doLast {
-    println '\n'
-    println 'A Unit teszt eredmények: ./build/reports/tests/index.html'
-    println 'A Blackbox teszt eredmények: ./build/reports/robot/report.html'
-    println 'A futtatható bináris (JAR) csomag: ./build/libs/1st_bead.jar'
-}
+//build.doLast {
+//    println '\n'
+//    println 'A Unit teszt eredmények: ./build/reports/tests/index.html'
+//    println 'A Blackbox teszt eredmények: ./build/reports/robot/report.html'
+//    println 'A futtatható bináris (JAR) csomag: ./build/libs/1st_bead.jar'
+//}
 
 //task buildNrun {
 //    group 'Application'
@@ -71,3 +71,4 @@ build.doLast {
 //buildNrun.setFinalizedBy(['build', 'run'])
 //
 //defaultTasks 'buildNrun'
+defaultTasks 'build', 'run'
