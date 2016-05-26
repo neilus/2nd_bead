@@ -2,11 +2,12 @@
 #+subtitle: 7. feladat - Áttörés
 #+author: Sana Norbert
 #+email: neilus@elte.hu
+#+language: hun
 
 * Feladatkiírás
 ** A feladat szövege
 
-*7. Áttörés*
+*7. feladat - Áttörés*
 
 Készítsünk  programot,  amellyel  a  következő  kétszemélyes  já
 tékot  lehet játszani.  Adott  egy /n × n/
@@ -139,3 +140,9 @@ GameView *-- Game
 [[file:img/class_diargamm.png]]
 
 *** Osztályok absztrakt leírása
+
+** Tesztelési terv
+
+*** Unit tesztek
+
+*** Acceptence tesztek

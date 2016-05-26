@@ -19,6 +19,10 @@ public class GameConfigView extends JPanel implements ActionListener{
     private JComboBox tableSizes;
     private JLabel tableSizeLabel;
 
+    public GameConfigView(){
+        this(new GameConfig());
+    }
+
     public GameConfigView(GameConfig config){
         setLayout(new FlowLayout());
 

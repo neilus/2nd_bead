@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
  */
 public class GameView extends JFrame implements ActionListener{
     private Main mainWindow;
-//    private GameModel game;
+    private GameModel game;
 
     public GameView(GameConfig config, Main mainWindow) {
         int tableSize = config.getTableSize();
@@ -26,6 +26,8 @@ public class GameView extends JFrame implements ActionListener{
         JPanel gameBoard = new JPanel();
 
         gameBoard.setLayout(new GridLayout(tableSize, tableSize));
+        game = new GameModel(config);
+
 
         for(int i = 0; i < tableSize; i++){
             for(int j = 0; j < tableSize; j++) {

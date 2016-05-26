@@ -32,7 +32,6 @@ public class Main extends JFrame implements ActionListener{
     }
 
     private List<GameView> gameWindows = new ArrayList<>();
-    private GameConfig config;
     private GameConfigView configView;
     private GameView gameView;
 
@@ -42,8 +41,8 @@ public class Main extends JFrame implements ActionListener{
 //        setSize(640, 400);
         getContentPane().setLayout(new FlowLayout());
 
-        config = new GameConfig();
-        configView = new GameConfigView(config);
+
+        configView = new GameConfigView();
         add(configView);
 
         JToggleButton startBtn = new JToggleButton("Start");
