@@ -8,7 +8,7 @@ public class GameModel {
     private GameConfig config;
     private int size;
     private Field[][] fields;
-    private Turn whosTurn;
+    private Player whosTurn;
 
     public GameModel(GameConfig config){
         this.config = config;

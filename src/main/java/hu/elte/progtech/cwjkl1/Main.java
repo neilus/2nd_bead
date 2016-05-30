@@ -22,7 +22,6 @@ public class Main extends JFrame implements ActionListener{
          */
         @Override
         public void windowClosing(WindowEvent e) {
-            System.out.println("Table size: " + config.getTableSize());
             System.exit(0);
         }
     };
@@ -38,9 +37,7 @@ public class Main extends JFrame implements ActionListener{
     public Main(){
         addWindowListener(exitApp);
         setTitle("Progtech. 1, 2. beadandó - Áttörés");
-//        setSize(640, 400);
         getContentPane().setLayout(new FlowLayout());
-
 
         configView = new GameConfigView();
         add(configView);
