@@ -1,4 +1,4 @@
-package hu.elte.progtech.cwjkl1;
+package hu.elte.progtech.cwjkl1.attores;
 
 import javax.swing.*;
 

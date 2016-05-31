@@ -103,7 +103,7 @@ A játékosok úgy mozgathatják a bábjaikat, hogy először a mozgatni kíván
 #+begin_src plantuml :file img/class_diargamm.png :exports results
 @startuml
 
-class hu.elte.progtech.cwjkl1.Main {
+class hu.elte.progtech.cwjkl1.attores.Main {
  - newGameBtn
  - startNewGame():void
 }
@@ -123,10 +123,10 @@ class Field
 JToggleButton <|-- FieldView
 JPanel <|-- GameView
 JPanel <|-- GameConfigView
-JPanel <|-- hu.elte.progtech.cwjkl1.Main
+JPanel <|-- hu.elte.progtech.cwjkl1.attores.Main
 
-hu.elte.progtech.cwjkl1.Main o--  GameConfigView
-hu.elte.progtech.cwjkl1.Main o--  GameView
+hu.elte.progtech.cwjkl1.attores.Main o--  GameConfigView
+hu.elte.progtech.cwjkl1.attores.Main o--  GameView
 Game o-- Field
 GameView o-- FieldView
 FieldView *-- Field

@@ -1,4 +1,4 @@
-package hu.elte.progtech.cwjkl1;
+package hu.elte.progtech.cwjkl1.attores;
 
 import java.util.ArrayList;
 import java.util.List;
