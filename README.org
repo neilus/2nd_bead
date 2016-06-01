@@ -144,8 +144,64 @@ GameView *-- Game
 
 *** Osztályok absztrakt leírása
 
+**** Main
+A program indulási pontja és a főablak egyben.
+Feladata megjeleníteni a játék konfigurációját és az adott konfigurációval elindítani egy új játékot.
+
+**** GameConfig
+A játék konfigurációs objektuma.
+Feladata a játéktábla méretének beállítása.
+
+**** GameConfigView
+A hozzá tartozó GameConfig objektum megjelenítéséért és vezérléséért felelős.
+
+**** GameView
+A játék ablaka. A bekonfigurált játékobjektumot jeleníti meg, figyel a játék eseményeire, így frissíti a grafikus nézetet.
+
+**** GameModel
+A játék logikát tartalmazza. A konfiguráció alapján felépít egy mátrixot, melyben a játéktábla állapotát tárolja. Továbbá tárolja az éppen soron következő játékost (kin van a sor, ki lépjen legközelebb) és vizsgálja a játék végét. Ha a játék véget ért (valamelyik játékos nyert) akkor egy felugró ablakkal jelzi.
+
+**** GameField
+A játéktábla egy mezőjének logikáját tartalmazza. Egy mező tartozhat valamely játékoshoz (ekkor bábuja van az adott mezőn a játékosnak) vagy egyik játékoshoz sem (ekkor szabad mező a játék szempontjából).
+
+**** FieldView
+A GameField megjelenítésére és vezérlésére szolgál. A mező kiválasztásának eseményét triggereli a hozzá tartozó GameField objektumon, melyet a GameModel is figyel, így módosítja a játék állapotát a játékszabályok szerint.
+
+**** Player
+Egy enum típus, a játékosok egyszerűbb megkülönböztetésére szolgál.
+
 ** Tesztelési terv
 
-*** Unit tesztek
+*** GUI tesztelés
 
-*** Acceptence tesztek
+**** Főablak
+- A GameConfigView-n található legördülő menü a megfelelő elemeket tartalmazza, ezek kiválaszthatóak.
+- A start gomb megnyomásával a megadott konfigurációjú játék elindul.
+
+**** Játék ablak
+- A konfigurációnak megfelelő méretű ablak jelenik meg
+- A játéktábla a megfelelő számú mezőt tartalmazza
+- Kezdőállapotban a játékosok bábui a megfelelő mezőkön helyezkednek el
+
+*** Működés tesztélése
+
+**** Konfiguráció
+- A kiválasztott konfigurációnak megfelelő méretű játék indul el
+
+**** A játék menete
+- Fehér játékos kezd
+  - A fehér csak a Déli irányokba tud lépni
+  - csak szomszédos mezőre tud lépni
+- a játékosok felváltva kerülnek sorra
+  - A fehér játékos után a fekete következik
+  - a fekete játékos csak az Északi irányokba tud lépni
+- Bábu ütése
+  - Csak a soron következő játékos tud ütni bábut
+  - Csak az ellenfél bábuját tudja ütni
+  - az ellenfél bábuját szemből nem tudja ütni
+  - az ellenfél bábuját átlósan tudja ütni
+  - csak szomszédos bábut tud ütni
+- Játék vége
+  - Amint az egyik játékos elér a tábla vele átellenes részének utolsó sorába
+  - A játék vége esemény aktiválódik
+    - A játék vége és a nyertes játékos megjelenik egy felugró ablakon
