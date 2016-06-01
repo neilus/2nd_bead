@@ -29,21 +29,29 @@ public class GameField {
     }
 
     public interface FieldListener {
+        /// fixme: törölhető
         public void fieldEventRecieved(FieldEvent event);
+        /// Kiválasztották ezt a mezőt
         public void fieldSelected(FieldEvent event);
+        /// elfoglalták ezt a mezőt
         public void fieldConqueredBy(Player who);
+        /// felszabadult ez a mező
         public void fieldLiberated();
+        /// elmozgattak egy bábut
         public void puppetMoved(FieldEvent e);
     }
 
+    /// melyik játékoshoz tartozik ez a mező
     public Player getWhose() {
         return whose;
     }
 
+    /// mi a játékos neve, akihez ez a mező tartozik
     public String whose() {
         return (whose == Player.NOBODY)? "" : whose.toString();
     }
 
+    /// állítsuk be kihez tartozik ez a mező
     public void setWhose(Player whose) {
         this.whose = whose;
     }
@@ -131,18 +139,26 @@ public class GameField {
         eventListeners.remove(game);
     }
 
+    /**
+     * esemeny triggerelese
+     */
     public synchronized void selectThisField() {
         FieldEvent event = new FieldEvent(this);
         for(FieldListener listener:eventListeners){
             listener.fieldSelected(event);
         }
     }
+
+    /**
+     * esemeny triggerelese
+     */
     public synchronized void fireFieldEvent() {
         FieldEvent fieldEvent = new FieldEvent(this);
         for(FieldListener listener:eventListeners){
             listener.fieldEventRecieved(fieldEvent);
         }
     }
+
     public void gotSelected(){
         fireFieldEvent();
     }

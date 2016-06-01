@@ -49,7 +49,7 @@ public class GameConfigView extends JPanel implements ActionListener{
     }
 
     /**
-     * Invoked when an action occurs.
+     * Eseménykezelő, beállítja a konfigurációt, a GUI alapján
      *
      * @param e
      */

@@ -25,15 +25,34 @@ public class GameConfig {
     }
 
 
+    /**
+     * beállítja a tábla kívánt méretét
+     * @param tableSize
+     */
     public void setTableSize(Integer tableSize) {
         this.tableSize = tableSize;
     }
+
+    /**
+     * lekérdezi a tábla méretét
+     * @return
+     */
     public Integer getTableSize() {
         return tableSize;
     }
+
+    /**
+     * megmondja a megengedett konfigurációból melyik van épp kiválasztva
+     * @return
+     */
     public int getTableSizeIndex() {
         return validDimensions.indexOf(tableSize);
     }
+
+    /**
+     * be van-e már konfigurálva
+     * @return true ha beconfigurálták már, false ha nem
+     */
     public boolean isConfigured(){
         return tableSize != null;
     }

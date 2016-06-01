@@ -27,10 +27,13 @@ public class FieldView extends JToggleButton implements ActionListener, FieldLis
     public String toString(){
         return this.gameFieldModel.toString();
     }
+
+    /// Factory metódus
     public static FieldView createFieldView(GameField gameFieldModel) {
         return new FieldView(gameFieldModel);
     }
 
+    /// Factory metódus, a játékmezők mátrixához egy vezérlő/GUI mátrixot rendel
     public static FieldView[][] createFieldViewMatrix(GameField[][] gameFields){
         FieldView[][] views;
         views = new FieldView[gameFields.length][gameFields.length];
@@ -44,16 +47,17 @@ public class FieldView extends JToggleButton implements ActionListener, FieldLis
         return views;
     }
 
+    // nem fontos, a GUI mező nevét állítja be a játékmező alapján
     public void setGameFieldModel(GameField field){
         this.gameFieldModel = field;
     }
 
+    // megmondja melyik játékos áll az adott mezőn, üres string ha egyik sem
     public String whose() {
         return this.gameFieldModel.whose();
     }
     /**
-     * Invoked when an action occurs.
-     *
+     * Ha a GUI elemet kiválasztják, kiválasztottnak jelöli a hozzá tartozó játékmezőt is
      * @param e
      */
     @Override
@@ -65,21 +69,19 @@ public class FieldView extends JToggleButton implements ActionListener, FieldLis
     }
 
     @Override
-    public void fieldEventRecieved(GameField.FieldEvent event) {
-
-    }
+    public void fieldEventRecieved(GameField.FieldEvent event) {}
 
     @Override
-    public void fieldSelected(GameField.FieldEvent event) {
+    public void fieldSelected(GameField.FieldEvent event) {}
 
-    }
-
+    /// beállítja a GUI mező szövegét a rajta táborozó játékos nevére
     @Override
     public void fieldConqueredBy(Player who) {
         setText(gameFieldModel.whose());
         this.setSelected(false);
     }
 
+    // kitörli a játékos nevét a GUI mezőről
     @Override
     public void fieldLiberated() {
         setText("");
@@ -87,7 +89,5 @@ public class FieldView extends JToggleButton implements ActionListener, FieldLis
     }
 
     @Override
-    public void puppetMoved(GameField.FieldEvent e) {
-
-    }
+    public void puppetMoved(GameField.FieldEvent e) {}
 }
