@@ -67,7 +67,10 @@ public class GameView extends JFrame implements ActionListener, GameEventListene
     @Override
     public void gameOverEvent(GameModel.GameEvent event) {
         System.out.println("Game Over!");
-        JDialog gameOverDialog = new JDialog(this, "Game Over, " + event.getWhoWon().toString() );
+        JDialog gameOverDialog = new JDialog(this, "Game Over, " + event.getWhoWon().toString(), Dialog.ModalityType.APPLICATION_MODAL);
+        gameOverDialog.setLayout(new FlowLayout());
+        gameOverDialog.add(new JLabel("Game Over, Player " + event.getWhoWon() + " wins!"));
+//        gameOverDialog.add(new JButton("OK"));
         gameOverDialog.pack();
         gameOverDialog.show(true);
     }
