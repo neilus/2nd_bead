@@ -1,15 +1,19 @@
 package hu.elte.progtech.cwjkl1.attores;
 
+import hu.elte.progtech.cwjkl1.attores.GameModel.GameEventListener;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static hu.elte.progtech.cwjkl1.attores.GameModel.*;
+
 
 /**
  * A táblajáték ablaka, melyen keresztül lehet vezérelni a játékot
  */
-public class GameView extends JFrame implements ActionListener, GameModel.GameEventListener{
+public class GameView extends JFrame implements ActionListener, GameEventListener{
     private Main mainWindow;
     private GameModel game;
     private int fieldSize = 64;
@@ -30,6 +34,7 @@ public class GameView extends JFrame implements ActionListener, GameModel.GameEv
         gameBoard.setLayout(new GridLayout(tableSize, tableSize));
 
         game = new GameModel(config);
+        game.addEventListener(this);
         fieldViews = FieldView.createFieldViewMatrix(game.getGameFields());
         addFieldViews(gameBoard, fieldViews);
 
@@ -60,8 +65,11 @@ public class GameView extends JFrame implements ActionListener, GameModel.GameEv
     }
 
     @Override
-    public void gameEventRecieved(GameModel.GameEvent event) {
-        System.out.println("some game event recieved");
+    public void gameOverEvent(GameModel.GameEvent event) {
+        System.out.println("Game Over!");
+        JDialog gameOverDialog = new JDialog(this, "Game Over, " + event.getWhoWon().toString() );
+        gameOverDialog.pack();
+        gameOverDialog.show(true);
     }
 
     @Override

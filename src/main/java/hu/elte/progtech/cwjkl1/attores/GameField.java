@@ -33,6 +33,7 @@ public class GameField {
         public void fieldSelected(FieldEvent event);
         public void fieldConqueredBy(Player who);
         public void fieldLiberated();
+        public void puppetMoved(FieldEvent e);
     }
 
     public Player getWhose() {
@@ -67,6 +68,16 @@ public class GameField {
     }
 
     /**
+     * firing events when the puppet got moved already
+     */
+    private void movePuppet(){
+        FieldEvent event = new FieldEvent(this);
+        for(FieldListener listener:eventListeners){
+            listener.puppetMoved(event);
+        }
+    }
+
+    /**
      * Move the "puppet" from this to here
      * @param here
      */
@@ -75,6 +86,7 @@ public class GameField {
         here.conqueredFieldBy(this.getWhose());
         this.liberateField();
         this.setWhose(Player.NOBODY);
+        here.movePuppet();
     }
 
     /**
@@ -86,6 +98,7 @@ public class GameField {
         this.conqueredFieldBy(here.getWhose());
         here.liberateField();
         here.setWhose(Player.NOBODY);
+        this.movePuppet();
     }
 
     public Puppet getPuppet() {

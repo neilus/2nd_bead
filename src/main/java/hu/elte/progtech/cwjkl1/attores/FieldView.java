@@ -76,7 +76,7 @@ public class FieldView extends JToggleButton implements ActionListener, FieldLis
 
     @Override
     public void fieldConqueredBy(Player who) {
-        setText(who.toString());
+        setText(gameFieldModel.whose());
         this.setSelected(false);
     }
 
@@ -84,5 +84,10 @@ public class FieldView extends JToggleButton implements ActionListener, FieldLis
     public void fieldLiberated() {
         setText("");
         this.setSelected(false);
+    }
+
+    @Override
+    public void puppetMoved(GameField.FieldEvent e) {
+
     }
 }
