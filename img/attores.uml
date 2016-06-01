@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>hu.elte.progtech.cwjkl1.attores</OriginalElement>
+  <nodes>
+    <node x="233.77996031746022" y="20.0">hu.elte.progtech.cwjkl1.attores.GameField.FieldEvent</node>
+    <node x="664.6964285714284" y="596.0">hu.elte.progtech.cwjkl1.attores.GameModel.GameEvent</node>
+    <node x="0.0" y="803.5">hu.elte.progtech.cwjkl1.attores.FieldView</node>
+    <node x="996.8073412698412" y="566.0">hu.elte.progtech.cwjkl1.attores.GameConfig</node>
+    <node x="532.3299603174603" y="1213.0">hu.elte.progtech.cwjkl1.attores.GameModel.GameEventListener</node>
+    <node x="81.79999999999995" y="137.0">hu.elte.progtech.cwjkl1.attores.GameField</node>
+    <node x="687.687925170068" y="0.0">hu.elte.progtech.cwjkl1.attores.Player</node>
+    <node x="1013.0" y="1172.0">hu.elte.progtech.cwjkl1.attores.Main</node>
+    <node x="359.0" y="733.0">hu.elte.progtech.cwjkl1.attores.GameModel</node>
+    <node x="726.8281746031746" y="1391.0">hu.elte.progtech.cwjkl1.attores.GameView</node>
+    <node x="134.75" y="556.0">hu.elte.progtech.cwjkl1.attores.GameField.FieldListener</node>
+    <node x="992.0" y="853.0">hu.elte.progtech.cwjkl1.attores.GameConfigView</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="hu.elte.progtech.cwjkl1.attores.GameView" target="hu.elte.progtech.cwjkl1.attores.GameModel.GameEventListener">
+      <point x="-54.0" y="-94.0" />
+      <point x="816.8281746031746" y="1351.0" />
+      <point x="657.3299603174603" y="1351.0" />
+      <point x="0.0" y="33.5" />
+    </edge>
+    <edge source="hu.elte.progtech.cwjkl1.attores.GameModel" target="hu.elte.progtech.cwjkl1.attores.GameConfig">
+      <point x="262.7142857142858" y="-194.5" />
+      <point x="928.2142857142858" y="708.0" />
+      <point x="1033.1406746031746" y="708.0" />
+      <point x="-72.66666666666667" y="53.5" />
+    </edge>
+    <edge source="hu.elte.progtech.cwjkl1.attores.GameField" target="hu.elte.progtech.cwjkl1.attores.GameField.FieldListener">
+      <point x="0.0" y="184.5" />
+      <point x="361.29999999999995" y="531.0" />
+      <point x="374.75" y="531.0" />
+      <point x="80.0" y="-63.5" />
+    </edge>
+    <edge source="hu.elte.progtech.cwjkl1.attores.GameField" target="hu.elte.progtech.cwjkl1.attores.Player">
+      <point x="209.625" y="-184.5" />
+      <point x="570.925" y="112.0" />
+      <point x="708.5212585034012" y="112.0" />
+      <point x="-41.666666666666686" y="43.5" />
+    </edge>
+    <edge source="hu.elte.progtech.cwjkl1.attores.GameView" target="hu.elte.progtech.cwjkl1.attores.GameModel">
+      <point x="-18.0" y="-94.0" />
+      <point x="852.8281746031746" y="1371.0" />
+      <point x="833.1250283446711" y="1371.0" />
+      <point x="833.1250283446711" y="1147.0" />
+      <point x="895.375" y="1147.0" />
+      <point x="229.875" y="194.5" />
+    </edge>
+    <edge source="hu.elte.progtech.cwjkl1.attores.GameConfigView" target="hu.elte.progtech.cwjkl1.attores.GameConfig">
+      <point x="-81.0" y="-74.5" />
+      <point x="1073.0" y="708.0" />
+      <point x="1105.8073412698413" y="708.0" />
+      <point x="1.4210854715202004E-14" y="53.5" />
+    </edge>
+    <edge source="hu.elte.progtech.cwjkl1.attores.GameView" target="hu.elte.progtech.cwjkl1.attores.FieldView">
+      <point x="-126.0" y="-94.0" />
+      <point x="744.8281746031746" y="1371.0" />
+      <point x="169.5" y="1371.0" />
+      <point x="0.0" y="124.0" />
+    </edge>
+    <edge source="hu.elte.progtech.cwjkl1.attores.GameModel" target="hu.elte.progtech.cwjkl1.attores.GameModel.GameEvent">
+      <point x="-1.1368683772161603E-13" y="-194.5" />
+      <point x="665.4999999999999" y="708.0" />
+      <point x="697.9464285714284" y="708.0" />
+      <point x="-33.25" y="23.5" />
+    </edge>
+    <edge source="hu.elte.progtech.cwjkl1.attores.Main" target="hu.elte.progtech.cwjkl1.attores.GameView">
+      <point x="35.25" y="74.5" />
+      <point x="1189.25" y="1361.0" />
+      <point x="960.8281746031746" y="1361.0" />
+      <point x="90.0" y="-94.0" />
+    </edge>
+    <edge source="hu.elte.progtech.cwjkl1.attores.GameField" target="hu.elte.progtech.cwjkl1.attores.GameField.FieldEvent">
+      <point x="-209.625" y="-184.5" />
+      <point x="151.67499999999995" y="112.0" />
+      <point x="261.2799603174602" y="112.0" />
+      <point x="-55.0" y="23.5" />
+    </edge>
+    <edge source="hu.elte.progtech.cwjkl1.attores.FieldView" target="hu.elte.progtech.cwjkl1.attores.GameField.FieldListener">
+      <point x="84.75" y="-124.0" />
+      <point x="254.25" y="708.0" />
+      <point x="214.75" y="708.0" />
+      <point x="-80.0" y="63.5" />
+    </edge>
+    <edge source="hu.elte.progtech.cwjkl1.attores.GameField.FieldEvent" target="hu.elte.progtech.cwjkl1.attores.GameField">
+      <point x="0.0" y="23.5" />
+      <point x="316.2799603174602" y="112.0" />
+      <point x="291.42499999999995" y="112.0" />
+      <point x="-69.875" y="-184.5" />
+    </edge>
+    <edge source="hu.elte.progtech.cwjkl1.attores.GameModel" target="hu.elte.progtech.cwjkl1.attores.GameField">
+      <point x="-87.57142857142873" y="-194.5" />
+      <point x="577.9285714285713" y="708.0" />
+      <point x="555.0178854875281" y="708.0" />
+      <point x="555.0178854875281" y="531.0" />
+      <point x="584.9" y="531.0" />
+      <point x="223.60000000000002" y="184.5" />
+    </edge>
+    <edge source="hu.elte.progtech.cwjkl1.attores.Main" target="hu.elte.progtech.cwjkl1.attores.GameConfigView">
+      <point x="-70.5" y="-74.5" />
+      <point x="1083.5" y="1147.0" />
+      <point x="1073.0" y="1147.0" />
+      <point x="-81.0" y="74.5" />
+    </edge>
+    <edge source="hu.elte.progtech.cwjkl1.attores.GameModel" target="hu.elte.progtech.cwjkl1.attores.Player">
+      <point x="175.1428571428571" y="-194.5" />
+      <point x="840.6428571428571" y="708.0" />
+      <point x="827.187925170068" y="708.0" />
+      <point x="827.187925170068" y="112.0" />
+      <point x="791.8545918367345" y="112.0" />
+      <point x="41.66666666666663" y="43.5" />
+    </edge>
+    <edge source="hu.elte.progtech.cwjkl1.attores.GameModel.GameEventListener" target="hu.elte.progtech.cwjkl1.attores.GameModel">
+      <point x="-62.5" y="-33.5" />
+      <point x="594.8299603174603" y="1147.0" />
+      <point x="588.875" y="1147.0" />
+      <point x="-76.625" y="194.5" />
+    </edge>
+    <edge source="hu.elte.progtech.cwjkl1.attores.GameView" target="hu.elte.progtech.cwjkl1.attores.Main">
+      <point x="18.0" y="-94.0" />
+      <point x="888.8281746031746" y="1341.0" />
+      <point x="1048.25" y="1341.0" />
+      <point x="-105.75" y="74.5" />
+    </edge>
+    <edge source="hu.elte.progtech.cwjkl1.attores.FieldView" target="hu.elte.progtech.cwjkl1.attores.GameField">
+      <point x="-84.75" y="-124.0" />
+      <point x="84.75" y="708.0" />
+      <point x="124.25" y="708.0" />
+      <point x="124.25" y="531.0" />
+      <point x="137.69999999999993" y="531.0" />
+      <point x="-223.60000000000002" y="184.5" />
+    </edge>
+    <edge source="hu.elte.progtech.cwjkl1.attores.GameModel" target="hu.elte.progtech.cwjkl1.attores.GameField.FieldListener">
+      <point x="-262.7142857142859" y="-194.5" />
+      <point x="402.7857142857141" y="708.0" />
+      <point x="374.75" y="708.0" />
+      <point x="80.0" y="63.5" />
+    </edge>
+    <edge source="hu.elte.progtech.cwjkl1.attores.GameModel" target="hu.elte.progtech.cwjkl1.attores.GameModel.GameEventListener">
+      <point x="76.625" y="194.5" />
+      <point x="742.125" y="1147.0" />
+      <point x="719.8299603174603" y="1147.0" />
+      <point x="62.5" y="-33.5" />
+    </edge>
+    <edge source="hu.elte.progtech.cwjkl1.attores.GameModel.GameEvent" target="hu.elte.progtech.cwjkl1.attores.GameModel">
+      <point x="33.25" y="23.5" />
+      <point x="764.4464285714284" y="708.0" />
+      <point x="753.0714285714284" y="708.0" />
+      <point x="87.5714285714285" y="-194.5" />
+    </edge>
+    <edge source="hu.elte.progtech.cwjkl1.attores.GameField.FieldListener" target="hu.elte.progtech.cwjkl1.attores.GameField">
+      <point x="-80.0" y="-63.5" />
+      <point x="214.75" y="531.0" />
+      <point x="249.5" y="531.0" />
+      <point x="-111.79999999999995" y="184.5" />
+    </edge>
+    <edge source="hu.elte.progtech.cwjkl1.attores.GameModel.GameEvent" target="hu.elte.progtech.cwjkl1.attores.Player">
+      <point x="0.0" y="-23.5" />
+      <point x="731.1964285714284" y="112.0" />
+      <point x="750.187925170068" y="112.0" />
+      <point x="0.0" y="43.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.425891181988743" x="658.0" y="789.5" />
+  <SelectedNodes>
+    <node>hu.elte.progtech.cwjkl1.attores.FieldView</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

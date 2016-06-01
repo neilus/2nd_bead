@@ -100,6 +100,7 @@ A játékosok úgy mozgathatják a bábjaikat, hogy először a mozgatni kíván
 
 *** Osztálydiagramm
 
+#+begin_notes
 #+begin_src plantuml :file img/class_diargamm.png :exports results
 @startuml
 
@@ -135,9 +136,11 @@ GameView *-- Game
 
 @enduml
 #+end_src
-
+#+end_notes
 #+RESULTS:
-[[file:img/class_diargamm.png]]
+
+
+[[file:img/attores_uml.png]]
 
 *** Osztályok absztrakt leírása
 

@@ -101,14 +101,6 @@ public class GameField {
         this.movePuppet();
     }
 
-    public Puppet getPuppet() {
-        return puppet;
-    }
-
-    public void setPuppet(Puppet puppet) {
-        this.puppet = puppet;
-    }
-
     private int x;
 
     public int getY() {
@@ -129,7 +121,6 @@ public class GameField {
 
     private int y;
     private Player whose;
-    private Puppet puppet;
     private List<FieldListener> eventListeners = new CopyOnWriteArrayList<>();
 
     public synchronized void addEventListener(FieldListener game){
