@@ -1,5 +1,7 @@
 package hu.elte.progtech.cwjkl1.attores;
 
+import hu.elte.progtech.cwjkl1.attores.GameField.FieldListener;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,17 +9,18 @@ import java.awt.event.ActionListener;
 /**
  * Created by neilus on 5/24/16.
  */
-public class FieldView extends JToggleButton implements ActionListener{
+public class FieldView extends JToggleButton implements ActionListener, FieldListener{
+    public GameField getGameFieldModel() {
+        return gameFieldModel;
+    }
+
     private GameField gameFieldModel;
 
     private FieldView(GameField gameFieldModel){
         this.gameFieldModel = gameFieldModel;
-        initialize();
-    }
-
-    private void initialize() {
-        this.setText(gameFieldModel.whose());
         this.setName("" + gameFieldModel.getX() + ", " + gameFieldModel.getY());
+        this.setText(gameFieldModel.whose());
+        gameFieldModel.addEventListener(this);
         addActionListener(this);
     }
 
@@ -56,7 +59,30 @@ public class FieldView extends JToggleButton implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         FieldView fieldView = (FieldView) e.getSource();
-        System.out.println("You pressed fieldView " + fieldView.getName() + " - " + fieldView.whose() );
+        fieldView.getGameFieldModel().selectThisField();
+//        System.out.println("You pressed fieldView " + fieldView.getName() + " - " + fieldView.whose() );
 
+    }
+
+    @Override
+    public void fieldEventRecieved(GameField.FieldEvent event) {
+
+    }
+
+    @Override
+    public void fieldSelected(GameField.FieldEvent event) {
+
+    }
+
+    @Override
+    public void fieldConqueredBy(Player who) {
+        setText(who.toString());
+        this.setSelected(false);
+    }
+
+    @Override
+    public void fieldLiberated() {
+        setText("");
+        this.setSelected(false);
     }
 }
